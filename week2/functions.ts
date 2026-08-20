@@ -1,22 +1,35 @@
-function greet(name:string):string{
-    return `Namaste,${name}!`;
+function addNumbers(a: number, b: number): number {
+    return a + b;
 }
-function getLocation(city:string="Hyderabad"):string{
-    return `Location:${city}`;
-}
-function sendAlert(phoneNumber:number,message?:string):void{
-    console.log(`sending SMS to ${phoneNumber}...`);
-    if(message){
-        console.log(`content:${message}`);
+
+function greet(name: string, message?: string): void {
+    if (message) {
+        console.log(message + ", " + name);
+    } else {
+        console.log("Hello " + name);
     }
 }
-function calculateTotalScores(...scores:number[]):number{
-    return scores.reduce((total,current)=> total+current,0);
+
+function calculateBill(amount: number, tax: number = 5): number {
+    return amount + (amount * tax / 100);
 }
-console.log(greet("maya"));
-console.log(getLocation());
-console.log(getLocation("kakinada"));
-const total=calculateTotalScores(10,20,30,40);
-sendAlert(9876543210);
-sendAlert(9876543210,"Movie starts now!");
-console.log(`Total Score:${total}`);
+
+function findTotal(...numbers: number[]): number {
+    let total = 0;
+
+    for (let num of numbers) {
+        total += num;
+    }
+
+    return total;
+}
+
+console.log("Sum:", addNumbers(20, 30));
+
+greet("Vaishnavi");
+greet("Vaishnavi", "Evening");
+
+console.log("Bill:", calculateBill(1000));
+console.log("Bill:", calculateBill(1000, 10));
+
+console.log("Total:", findTotal(10, 20, 30, 40));

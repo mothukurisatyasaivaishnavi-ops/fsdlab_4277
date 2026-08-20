@@ -1,25 +1,20 @@
 "use strict";
-class BankBranch {
-    static bankName = "HDFC Bank";
-    static totalAccountsCreated = 0;
-    accountNumber;
-    accountHolder;
-    constructor(name, accNo) {
-        this.accountHolder = name;
-        this.accountNumber = accNo;
-        BankBranch.totalAccountsCreated++;
+class Product {
+    productId;
+    productName;
+    static category = "Electronics";
+    constructor(id, name) {
+        this.productId = id;
+        this.productName = name;
     }
-    static getBankPolicy() {
-        console.log(`Welcome to ${this.bankName}. All FDs are subject to market risks.`);
-    }
-    showAccount() {
-        console.log(`Holder: ${this.accountHolder}`);
-        console.log(`Acc No: ${this.accountNumber}`);
+    displayProduct() {
+        console.log("Product ID:", this.productId);
+        console.log("Product Name:", this.productName);
+        console.log("Category:", Product.category);
     }
 }
-console.log(BankBranch.bankName);
-BankBranch.getBankPolicy();
-const user1 = new BankBranch("Suresh Raina", "HDFC000123");
-const user2 = new BankBranch("Deepika P.", "HDFC000456");
-console.log(user1.accountNumber);
-console.log(`Total Accounts in System: ${BankBranch.totalAccountsCreated}`);
+let product1 = new Product(101, "Mouse");
+let product2 = new Product(102, "speakers");
+product1.displayProduct();
+product2.displayProduct();
+console.log("Common Category:", Product.category);

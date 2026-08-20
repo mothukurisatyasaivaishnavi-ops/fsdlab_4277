@@ -1,23 +1,28 @@
 "use strict";
-function greet(name) {
-    return `Namaste,${name}!`;
+function addNumbers(a, b) {
+    return a + b;
 }
-function getLocation(city = "Hyderabad") {
-    return `Location:${city}`;
-}
-function sendAlert(phoneNumber, message) {
-    console.log(`sending SMS to ${phoneNumber}...`);
+function greet(name, message) {
     if (message) {
-        console.log(`content:${message}`);
+        console.log(message + ", " + name);
+    }
+    else {
+        console.log("Hello " + name);
     }
 }
-function calculateTotalScores(...scores) {
-    return scores.reduce((total, current) => total + current, 0);
+function calculateBill(amount, tax = 5) {
+    return amount + (amount * tax / 100);
 }
-console.log(greet("maya"));
-console.log(getLocation());
-console.log(getLocation("kakinada"));
-const total = calculateTotalScores(10, 20, 30, 40);
-sendAlert(9876543210);
-sendAlert(9876543210, "Movie starts now!");
-console.log(`Total Score:${total}`);
+function findTotal(...numbers) {
+    let total = 0;
+    for (let num of numbers) {
+        total += num;
+    }
+    return total;
+}
+console.log("Sum:", addNumbers(20, 30));
+greet("Vaishnavi");
+greet("Vaishnavi", "Evening");
+console.log("Bill:", calculateBill(1000));
+console.log("Bill:", calculateBill(1000, 10));
+console.log("Total:", findTotal(10, 20, 30, 40));
